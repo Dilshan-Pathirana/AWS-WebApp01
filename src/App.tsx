@@ -43,7 +43,7 @@ export default function App() {
             href="#"
             className="font-semibold tracking-tight text-lg sm:text-xl"
           >
-            <span className="text-sky-400">Your</span>Brand
+            <span className="text-sky-400">Your</span>Test App 01
           </a>
 
           {/* Desktop nav */}
