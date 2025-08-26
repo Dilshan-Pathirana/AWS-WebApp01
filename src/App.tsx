@@ -1,15 +1,99 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
+// ---- Portfolio Data (Modify and expand for your needs) ----
+const skills = [
+  "Python",
+  "JavaScript",
+  "Java",
+  "C",
+  "HTML",
+  "CSS",
+  "React.js",
+  "Node.js",
+  "Express.js",
+  "Spring Boot",
+  "OpenCV",
+  "TensorFlow",
+  "Scikit-learn",
+  "Keras",
+  "NumPy",
+  "Matplotlib",
+  "MySQL",
+  "MongoDB",
+  "RESTful APIs",
+  "Git",
+  "Docker",
+  "Postman",
+  "VS Code",
+];
+
+const projects = [
+  {
+    title: "AI-Powered Note-Taking Application",
+    tech: "Python, OCR, OpenAI API",
+    desc: "Designed an AI-assisted tool that scans images/screenshots, extracts and structures text via OCR, and generates refined PDF notes using natural language processing APIs.",
+    year: "2025",
+  },
+  {
+    title: "Web Application for Assisted Package Quota Estimation",
+    tech: "MERN stack, Postman",
+    desc: "Developed a user-friendly web app to generate pricing estimates for media service packages based on client input and preferences.",
+    year: "2025",
+  },
+  {
+    title: "Fish Tracking and Distance Analysis System",
+    tech: "Python, OpenCV, NumPy, Matplotlib, Multiprocessing",
+    desc: "Built tool to analyze fish tank footage by tracking centroid movements, generating heatmaps, calculating distances traveled, and batch-processing videos.",
+    year: "2025",
+  },
+  {
+    title: "Camera Shop & Rental Management System",
+    tech: "Spring Boot, MySQL, RESTful APIs, Postman",
+    desc: "Full-stack web app for camera sales and rentals with secure user authentication, real-time inventory, and an admin dashboard.",
+    year: "2025",
+  },
+  {
+    title:
+      "Long-Term Efficiency Prediction of Solar Panels Using Machine Learning",
+    tech: "Python, Pandas, Scikit-learn, TensorFlow, Keras",
+    desc: "Built RNN and LSTM models using NASA POWER data to forecast efficiency of solar panels, aiding sustainable energy planning.",
+    year: "2025",
+  },
+  {
+    title: "Selective File Copying Application for Photo Editors",
+    tech: "Python",
+    desc: "Automated selective photocopying; streamlined editors' bulk requests and reduced manual effort.",
+    year: "2025",
+  },
+  {
+    title: "Web Application & Resource Management (perabeats Media Society)",
+    tech: "MERN Stack, Postman",
+    desc: "Digitized event coordination and equipment booking, replacing sluggish manual workflows with an efficient platform.",
+    year: "2024",
+  },
+];
+
+const awards = [
+  "Member of the Year – Videography, Perabeats Media Society, 2024",
+];
+
+const extracurriculars = [
+  "Editorial Panel Member, Robarosiya Society, 2023–2024",
+  "Member, Perabeats Media Society, 2023–2024",
+  "Executive Committee Member, Perabeats Media Society, 2024–2025",
+];
+
+// ---- App Component ----
 export default function App() {
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "Your Brand — Lightning-fast, Delightfully Animated";
+    document.title =
+      "Dilshan Pathirana — Applied Science Undergraduate | Software Engineer";
   }, []);
 
   return (
@@ -40,25 +124,26 @@ export default function App() {
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-4">
           <a
-            href="#"
+            href="#hero"
             className="font-semibold tracking-tight text-lg sm:text-xl"
           >
-            <span className="text-sky-400">Your</span>Test App 01
+            <span className="text-sky-400">Dilshan</span> Pathirana
           </a>
-
           {/* Desktop nav */}
           <nav className="hidden md:flex gap-6 text-sm text-neutral-300">
-            <a href="#features" className="hover:text-white transition">
-              Features
+            <a href="#about" className="hover:text-white transition">
+              About
             </a>
-            <a href="#showcase" className="hover:text-white transition">
-              Showcase
+            <a href="#skills" className="hover:text-white transition">
+              Skills
+            </a>
+            <a href="#projects" className="hover:text-white transition">
+              Projects
             </a>
             <a href="#contact" className="hover:text-white transition">
               Contact
             </a>
           </nav>
-
           {/* Mobile hamburger */}
           <div className="md:hidden">
             <button
@@ -70,23 +155,29 @@ export default function App() {
             </button>
           </div>
         </div>
-
         {/* Mobile dropdown */}
         {menuOpen && (
           <div className="md:hidden bg-neutral-900 border-t border-white/10">
             <a
-              href="#features"
+              href="#about"
               onClick={() => setMenuOpen(false)}
               className="block px-6 py-3 text-sm hover:bg-neutral-800"
             >
-              Features
+              About
             </a>
             <a
-              href="#showcase"
+              href="#skills"
               onClick={() => setMenuOpen(false)}
               className="block px-6 py-3 text-sm hover:bg-neutral-800"
             >
-              Showcase
+              Skills
+            </a>
+            <a
+              href="#projects"
+              onClick={() => setMenuOpen(false)}
+              className="block px-6 py-3 text-sm hover:bg-neutral-800"
+            >
+              Projects
             </a>
             <a
               href="#contact"
@@ -99,8 +190,11 @@ export default function App() {
         )}
       </header>
 
-      {/* Hero */}
-      <section className="relative mx-auto max-w-6xl px-4 sm:px-6 pb-20 pt-16 md:pt-28">
+      {/* Hero Section */}
+      <section
+        id="hero"
+        className="relative mx-auto max-w-6xl px-4 sm:px-6 pb-20 pt-16 md:pt-28"
+      >
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div>
             <motion.h1
@@ -109,7 +203,7 @@ export default function App() {
               transition={{ duration: 0.6 }}
               className="text-3xl sm:text-4xl md:text-6xl font-semibold leading-tight"
             >
-              Build fast. <span className="text-sky-400">Launch faster.</span>
+              Hi, I'm <span className="text-sky-400">Dilshan Pathirana</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -117,8 +211,10 @@ export default function App() {
               transition={{ delay: 0.1, duration: 0.6 }}
               className="mt-4 max-w-xl text-neutral-300 text-base sm:text-lg"
             >
-              A minimalist one-page template with buttery-smooth animations,
-              built with React, Tailwind, and Framer Motion.
+              Final-year Applied Science undergraduate (Computer Science major)
+              at University of Peradeniya. Passionate software engineer, AI/ML
+              integrator, and visual storyteller. Building real-world academic
+              solutions and innovative software for tomorrow’s challenges.
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
@@ -127,23 +223,24 @@ export default function App() {
               className="mt-8 flex flex-col sm:flex-row gap-3"
             >
               <a
-                href="#features"
+                href="#projects"
                 className="rounded-2xl bg-sky-500 px-5 py-3 font-medium shadow-lg shadow-sky-500/20 hover:brightness-110 text-center"
               >
-                See Features
+                See Projects
               </a>
               <a
                 href="#contact"
                 className="rounded-2xl border border-white/20 px-5 py-3 font-medium hover:bg-white/10 text-center"
               >
-                Contact Us
+                Contact
               </a>
             </motion.div>
             <p className="mt-6 text-xs uppercase tracking-wider text-white/50">
-              No framework lock-in · 100% static · CDN-ready
+              Full-stack development · AI/ML · Academic research · Data analysis
+              · Linux system administration
             </p>
           </div>
-
+          {/* Side feature cards or replace with your own photo/graphic */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -159,24 +256,30 @@ export default function App() {
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-xl border border-white/10 p-4">
-                  <p className="text-sm text-white/80">Motion primitives</p>
+                  <p className="text-sm text-white/80">Machine Learning</p>
                   <p className="mt-1 text-xs text-white/60">
-                    fade, slide, spring
+                    AI, LSTMs, Computer Vision
                   </p>
                 </div>
                 <div className="rounded-xl border border-white/10 p-4">
-                  <p className="text-sm text-white/80">Hero gradient</p>
+                  <p className="text-sm text-white/80">
+                    Full-stack Engineering
+                  </p>
                   <p className="mt-1 text-xs text-white/60">
-                    dynamic blobs + parallax
+                    MERN, Spring Boot, REST APIs
                   </p>
                 </div>
                 <div className="rounded-xl border border-white/10 p-4">
-                  <p className="text-sm text-white/80">Responsive</p>
-                  <p className="mt-1 text-xs text-white/60">mobile → desktop</p>
+                  <p className="text-sm text-white/80">Academic Research</p>
+                  <p className="mt-1 text-xs text-white/60">
+                    Biodiversity, Statistics
+                  </p>
                 </div>
                 <div className="rounded-xl border border-white/10 p-4">
-                  <p className="text-sm text-white/80">Zero backend</p>
-                  <p className="mt-1 text-xs text-white/60">S3 + CloudFront</p>
+                  <p className="text-sm text-white/80">Creative Storytelling</p>
+                  <p className="mt-1 text-xs text-white/60">
+                    Photography, Videography
+                  </p>
                 </div>
               </div>
             </div>
@@ -184,62 +287,89 @@ export default function App() {
         </div>
       </section>
 
-      {/* Features */}
+      {/* About Section */}
       <section
-        id="features"
+        id="about"
+        className="mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20"
+      >
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">About Me</h2>
+        <p className="text-neutral-300 mb-4">
+          Final-year BSc (Hons) Applied Science (Computer Science)
+          undergraduate, University of Peradeniya.
+          <br />
+          Driven by curiosity and creative problem-solving, I blend technical
+          engineering, research, and visual arts.
+          <br />
+          Fluent in English and Sinhala.
+        </p>
+        <div className="mb-4">
+          <strong>Certifications / Awards:</strong>
+          <ul className="list-disc list-inside mt-2 text-neutral-200">
+            {awards.map((aw, i) => (
+              <li key={i}>{aw}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <strong>Extracurriculars:</strong>
+          <ul className="list-disc list-inside mt-2 text-neutral-200">
+            {extracurriculars.map((ec, i) => (
+              <li key={i}>{ec}</li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section
+        id="skills"
         className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20"
       >
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
-          {[
-            {
-              title: "Blazing load times",
-              desc: "Static assets optimized for CDN delivery.",
-            },
-            { title: "SPA routing", desc: "Works with index.html fallback." },
-            {
-              title: "Accessible by default",
-              desc: "Semantic markup + focus states.",
-            },
-          ].map((f, i) => (
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">
+          Skills & Tech Stack
+        </h2>
+        <div className="flex flex-wrap gap-3">
+          {skills.map((skill, i) => (
+            <span
+              key={i}
+              className="bg-sky-900/60 text-sky-200 px-3 py-1 rounded-full text-sm font-medium border border-sky-600"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section
+        id="projects"
+        className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20"
+      >
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Projects</h2>
+        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
+          {projects.map((project, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.45, delay: i * 0.05 }}
-              className="rounded-2xl border border-white/10 bg-neutral-900 p-6 shadow-sm"
+              className="rounded-2xl border border-white/10 bg-neutral-900 p-6 shadow-sm flex flex-col h-full"
             >
-              <h3 className="text-lg font-medium">{f.title}</h3>
-              <p className="mt-2 text-sm text-white/70">{f.desc}</p>
+              <h3 className="text-lg font-medium">{project.title}</h3>
+              <span className="inline-block mt-2 mb-4 px-2 py-1 rounded bg-neutral-800 text-xs text-sky-400 font-semibold">
+                {project.tech}
+              </span>
+              <p className="mb-2 text-white/70 text-sm flex-1">
+                {project.desc}
+              </p>
+              <p className="mt-auto text-xs text-white/50">{project.year}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Showcase */}
-      <section
-        id="showcase"
-        className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20"
-      >
-        <div className="grid gap-6 sm:gap-8 md:grid-cols-2">
-          {[1, 2, 3, 4].map((i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.45 }}
-              className="aspect-video rounded-2xl border border-white/10 bg-gradient-to-br from-neutral-800 to-neutral-900 p-4"
-            >
-              <div className="flex h-full w-full items-center justify-center rounded-xl border border-dashed border-white/10 text-sm text-white/60">
-                Drop your work here #{i}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact */}
+      {/* Contact Section */}
       <section
         id="contact"
         className="mx-auto max-w-2xl px-4 sm:px-6 py-16 sm:py-20"
@@ -249,20 +379,39 @@ export default function App() {
             Let’s work together
           </h2>
           <p className="mt-2 text-white/70 text-sm sm:text-base">
-            Replace this with your email form or link. For a 100% static setup,
-            link to mailto: or use a form backend service.
+            Interested in collaborating or want to connect? Feel free to reach
+            out via email or LinkedIn.
           </p>
-          <a
-            href="mailto:hello@example.com"
-            className="mt-6 inline-block rounded-xl bg-white/10 px-5 py-3 font-medium ring-1 ring-white/20 hover:bg-white/20 text-center"
-          >
-            hello@example.com
-          </a>
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <a
+              href="mailto:dilshan.pathirana.121@gmail.com"
+              className="rounded-xl  px-5 py-3 font-medium ring-1 ring-white/20 hover:bg-sky-400/50 text-center text-white"
+            >
+              dilshan.pathirana.121@gmail.com
+            </a>
+            <a
+              href="https://linkedin.com/in/dilshan-121-pathiran"
+              className="rounded-xl border border-white/20 px-5 py-3 font-medium hover:bg-white/10 text-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="https://github.com/Dilshan-Pathirana"
+              className="rounded-xl border border-white/20 px-5 py-3 font-medium hover:bg-white/10 text-center"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
       </section>
 
+      {/* Footer */}
       <footer className="border-t border-white/10 py-10 text-center text-xs text-white/50">
-        © {new Date().getFullYear()} Your Brand. All rights reserved.
+        © {new Date().getFullYear()} Dilshan Pathirana. All rights reserved.
       </footer>
     </div>
   );
