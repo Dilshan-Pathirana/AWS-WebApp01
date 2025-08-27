@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// ---- Portfolio Data (Modify and expand for your needs) ----
+// ---- Portfolio Data (Modify and expand for your needs) ----  test build
 const skills = [
   "Python",
   "JavaScript",
