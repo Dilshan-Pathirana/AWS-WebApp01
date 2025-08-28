@@ -34,8 +34,6 @@ jobs:
       - name: Sync build files to S3 bucket (dist)
         run: aws s3 sync ./dist/ s3://bucket-dilshanpathirana.com --delete
 
-      - name: Sync public assets to S3 bucket
-        run: aws s3 sync ./public/ s3://bucket-dilshanpathirana.com --delete
 
       # Commented out CloudFront invalidation until setup is complete
       # - name: Invalidate CloudFront cache
