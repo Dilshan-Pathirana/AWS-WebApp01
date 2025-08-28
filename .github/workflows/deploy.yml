@@ -1,11 +1,14 @@
-name: Deploy to AWS S3 and CloudFront
+name: Deploy to AWS S3
+
 on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -28,8 +31,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      - name: Sync to S3
-        run: aws s3 sync ./dist/ s3://dilshanpathirana.com --delete
+      - name: Sync build files to S3 bucket
+        run: aws s3 sync ./dist/ s3://bucket-dilshanpathirana.com --delete
 
-      - name: Invalidate CloudFront cache
-        run: aws cloudfront create-invalidation --distribution-id EBEZZ7K3RU7IX --paths "/*"
+      # Commented out CloudFront invalidation until setup is complete
+      # - name: Invalidate CloudFront cache
+      #   run: aws cloudfront create-invalidation --distribution-id EBEZZ7K3RU7IX --paths "/*"

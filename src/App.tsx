@@ -127,7 +127,7 @@ export default function App() {
             href="#hero"
             className="font-semibold tracking-tight text-lg sm:text-xl"
           >
-            <span className="text-sky-400">Dilshan</span> Pathirana
+            <span className="text-sky-400">Dilshans</span> Pathirana
           </a>
           {/* Desktop nav */}
           <nav className="hidden md:flex gap-6 text-sm text-neutral-300">
