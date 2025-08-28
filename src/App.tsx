@@ -232,7 +232,7 @@ export default function App() {
             <div className="relative">
               <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-sky-400/30 to-indigo-600/30 blur-lg" />
               <img
-                src="dist\assets\11.jpg" // <-- Replace with your image path
+                src="public\11.jpg" // <-- Replace with your image path
                 alt="Dilshan Pathirana"
                 className="relative z-10 w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover border-4 border-neutral-900 shadow-lg shadow-sky-500/20 hover:scale-105 transition-transform duration-300"
               />
