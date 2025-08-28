@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-// ---- Portfolio Data (Modify and expand for your needs) ----
+// ---- Portfolio Data ----
 const skills = [
   "Python",
   "JavaScript",
@@ -77,14 +77,13 @@ const projects = [
 const awards = [
   "Member of the Year – Videography, Perabeats Media Society, 2024",
 ];
-
 const extracurriculars = [
   "Editorial Panel Member, Robarosiya Society, 2023–2024",
   "Member, Perabeats Media Society, 2023–2024",
   "Executive Committee Member, Perabeats Media Society, 2024–2025",
 ];
 
-// ---- App Component ----
+// ---- Main App ----
 export default function App() {
   const { scrollYProgress } = useScroll();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
@@ -98,7 +97,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-neutral-950 text-neutral-100 antialiased selection:bg-white/20">
-      {/* Background blobs */}
+      {/* Background Soft Blobs */}
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
         <motion.div
           aria-hidden
@@ -120,7 +119,7 @@ export default function App() {
         />
       </div>
 
-      {/* Nav */}
+      {/* Navbar */}
       <header className="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/50">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 py-4">
           <a
@@ -129,7 +128,7 @@ export default function App() {
           >
             <span className="text-sky-400">Dilshan</span> Pathirana
           </a>
-          {/* Desktop nav */}
+
           <nav className="hidden md:flex gap-6 text-sm text-neutral-300">
             <a href="#about" className="hover:text-white transition">
               About
@@ -144,7 +143,7 @@ export default function App() {
               Contact
             </a>
           </nav>
-          {/* Mobile hamburger */}
+
           <div className="md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -155,47 +154,29 @@ export default function App() {
             </button>
           </div>
         </div>
-        {/* Mobile dropdown */}
         {menuOpen && (
           <div className="md:hidden bg-neutral-900 border-t border-white/10">
-            <a
-              href="#about"
-              onClick={() => setMenuOpen(false)}
-              className="block px-6 py-3 text-sm hover:bg-neutral-800"
-            >
-              About
-            </a>
-            <a
-              href="#skills"
-              onClick={() => setMenuOpen(false)}
-              className="block px-6 py-3 text-sm hover:bg-neutral-800"
-            >
-              Skills
-            </a>
-            <a
-              href="#projects"
-              onClick={() => setMenuOpen(false)}
-              className="block px-6 py-3 text-sm hover:bg-neutral-800"
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="block px-6 py-3 text-sm hover:bg-neutral-800"
-            >
-              Contact
-            </a>
+            {["about", "skills", "projects", "contact"].map((section) => (
+              <a
+                key={section}
+                href={`#${section}`}
+                onClick={() => setMenuOpen(false)}
+                className="block px-6 py-3 text-sm hover:bg-neutral-800"
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </a>
+            ))}
           </div>
         )}
       </header>
 
-      {/* Hero Section */}
+      {/* HERO Section With Profile */}
       <section
         id="hero"
         className="relative mx-auto max-w-6xl px-4 sm:px-6 pb-20 pt-16 md:pt-28"
       >
         <div className="grid items-center gap-10 md:grid-cols-2">
+          {/* LEFT TEXT */}
           <div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -240,54 +221,27 @@ export default function App() {
               · Linux system administration
             </p>
           </div>
-          {/* Side feature cards or replace with your own photo/graphic */}
+
+          {/* RIGHT: PROFILE IMAGE */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative"
+            className="flex items-center justify-center"
           >
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-br from-sky-500/30 to-indigo-500/30 blur" />
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-900 p-6">
-              <div className="mb-4 flex items-center gap-2">
-                <span className="inline-block h-3 w-3 rounded-full bg-red-400" />
-                <span className="inline-block h-3 w-3 rounded-full bg-yellow-400" />
-                <span className="inline-block h-3 w-3 rounded-full bg-green-400" />
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-xl border border-white/10 p-4">
-                  <p className="text-sm text-white/80">Machine Learning</p>
-                  <p className="mt-1 text-xs text-white/60">
-                    AI, LSTMs, Computer Vision
-                  </p>
-                </div>
-                <div className="rounded-xl border border-white/10 p-4">
-                  <p className="text-sm text-white/80">
-                    Full-stack Engineering
-                  </p>
-                  <p className="mt-1 text-xs text-white/60">
-                    MERN, Spring Boot, REST APIs
-                  </p>
-                </div>
-                <div className="rounded-xl border border-white/10 p-4">
-                  <p className="text-sm text-white/80">Academic Research</p>
-                  <p className="mt-1 text-xs text-white/60">
-                    Biodiversity, Statistics
-                  </p>
-                </div>
-                <div className="rounded-xl border border-white/10 p-4">
-                  <p className="text-sm text-white/80">Creative Storytelling</p>
-                  <p className="mt-1 text-xs text-white/60">
-                    Photography, Videography
-                  </p>
-                </div>
-              </div>
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-sky-400/30 to-indigo-600/30 blur-lg" />
+              <img
+                src="src\assets\11.jpg" // <-- Replace with your image path
+                alt="Dilshan Pathirana"
+                className="relative z-10 w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover border-4 border-neutral-900 shadow-lg shadow-sky-500/20 hover:scale-105 transition-transform duration-300"
+              />
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About */}
       <section
         id="about"
         className="mx-auto max-w-3xl px-4 sm:px-6 py-16 sm:py-20"
@@ -298,8 +252,7 @@ export default function App() {
           undergraduate, University of Peradeniya.
           <br />
           Driven by curiosity and creative problem-solving, I blend technical
-          engineering, research, and visual arts.
-          <br />
+          engineering, research, and visual arts. <br />
           Fluent in English and Sinhala.
         </p>
         <div className="mb-4">
@@ -320,7 +273,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills */}
       <section
         id="skills"
         className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20"
@@ -340,7 +293,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects */}
       <section
         id="projects"
         className="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20"
@@ -369,7 +322,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact */}
       <section
         id="contact"
         className="mx-auto max-w-2xl px-4 sm:px-6 py-16 sm:py-20"
@@ -385,7 +338,7 @@ export default function App() {
           <div className="mt-6 flex flex-col sm:flex-row gap-3">
             <a
               href="mailto:dilshan.pathirana.121@gmail.com"
-              className="rounded-xl  px-5 py-3 font-medium ring-1 ring-white/20 hover:bg-sky-400/50 text-center text-white"
+              className="rounded-xl px-5 py-3 font-medium ring-1 ring-white/20 hover:bg-sky-400/50 text-center text-white"
             >
               dilshan.pathirana.121@gmail.com
             </a>
