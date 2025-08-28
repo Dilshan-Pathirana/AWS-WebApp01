@@ -29,7 +29,7 @@ jobs:
           aws-region: ap-south-1
 
       - name: Sync to S3
-        run: aws s3 sync ./dist/ s3://dilshanpathirana.com --delete
+        run: aws s3 sync ./dist/ s3://bucket-dilshanpathirana.com --delete
 
       - name: Invalidate CloudFront cache
         run: aws cloudfront create-invalidation --distribution-id EBEZZ7K3RU7IX --paths "/*"
