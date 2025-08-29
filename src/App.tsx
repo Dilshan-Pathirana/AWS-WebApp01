@@ -364,7 +364,8 @@ export default function App() {
 
       {/* Footer */}
       <footer className="border-t border-white/10 py-10 text-center text-xs text-white/50">
-        © {new Date().getFullYear()} Dilshan Pathirana. All rights reserved.
+        © {new Date().getFullYear()} Dilshan Pathirana v1.0. All rights
+        reserved.
       </footer>
     </div>
   );
