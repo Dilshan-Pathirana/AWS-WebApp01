@@ -1,5 +1,0 @@
-1. build after fixing img
-2. image visible now
-3. not visible
-4. site secured with ssl
-no image now
