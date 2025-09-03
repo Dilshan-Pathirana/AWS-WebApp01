@@ -34,7 +34,5 @@ jobs:
       - name: Sync build files to S3 bucket (dist)
         run: aws s3 sync ./dist s3://dilshanpathirana.com --delete
 
-
-      # Commented out CloudFront invalidation until setup is complete
-      # - name: Invalidate CloudFront cache
-      #   run: aws cloudfront create-invalidation --distribution-id EBEZZ7K3RU7IX --paths "/*"
+      - name: Invalidate CloudFront cache
+        run: aws cloudfront create-invalidation --distribution-id E2T8JD2KKWRN7U --paths "/*"
