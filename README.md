@@ -1,69 +1,47 @@
-# React + TypeScript + Vite
+# 🌐 Portfolio WebApp - www.dilshanpathirana.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A **React-based static portfolio website** showcasing my projects, skills, and achievements.  
+The site is fully automated with **GitHub CI/CD**, hosted on **AWS S3**, and secured with **Cloudflare + Route 53** for domain management.  
 
-Currently, two official plugins are available:
+Live at: **[www.dilshanpathirana.com](http://www.dilshanpathirana.com/)**  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🎨 **Modern Portfolio** – Built with React for a clean and responsive design.  
+- 🚀 **Static Hosting** – Deployed on AWS S3 for scalability and performance.  
+- 🔄 **CI/CD Pipeline** – GitHub Actions automate builds and deployments.  
+- 🔐 **Secure Infrastructure** – AWS IAM roles & permissions for controlled access.  
+- 🌍 **Custom Domain** – Managed with Route 53 and Cloudflare DNS.  
+- 📱 **Responsive Design** – Optimized for desktop and mobile viewing.  
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Frontend**: React, TypeScript, TailwindCSS  
+- **Hosting**: AWS S3 (Static Website Hosting)  
+- **CI/CD**: GitHub Actions (automated build & deploy)  
+- **DNS & Domain**: Route 53 + Cloudflare  
+- **Security & Permissions**: AWS IAM  
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📦 Installation (Local Development)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
+- Node.js 18+  
+- npm / yarn  
+
+### Setup
+```bash
+# Clone the repository
+git clone https://github.com/your-username/aws-webapp01.git
+cd aws-webapp01
+
+# Install dependencies
+npm install
+
+# Run local dev server
+npm run dev
