@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 export default defineConfig(({ mode }) => {
   const rootDir = dirname(fileURLToPath(import.meta.url))
   const hasCname = existsSync(resolve(rootDir, 'CNAME'))
-  const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'AWS-WebApp01'
+  const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || 'My-Portfolio'
 
   return {
     base: mode === 'production' ? (hasCname ? '/' : `/${repoName}/`) : '/',

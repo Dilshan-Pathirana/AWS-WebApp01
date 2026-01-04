@@ -1,7 +1,7 @@
 # 🌐 Portfolio WebApp - www.dilshanpathirana.com
 
 A **React-based static portfolio website** showcasing my projects, skills, and achievements.  
-The site is fully automated with **GitHub CI/CD**, hosted on **AWS S3**, and secured with **Cloudflare + Route 53** for domain management.  
+The site is fully automated with **GitHub Actions** and hosted on **GitHub Pages**.  
 
 Live at: **[www.dilshanpathirana.com](http://www.dilshanpathirana.com/)**  
 
@@ -10,10 +10,9 @@ Live at: **[www.dilshanpathirana.com](http://www.dilshanpathirana.com/)**
 ## ✨ Features
 
 - 🎨 **Modern Portfolio** – Built with React for a clean and responsive design.  
-- 🚀 **Static Hosting** – Deployed on AWS S3 for scalability and performance.  
+- 🚀 **Static Hosting** – Deployed on GitHub Pages.  
 - 🔄 **CI/CD Pipeline** – GitHub Actions automate builds and deployments.  
-- 🔐 **Secure Infrastructure** – AWS IAM roles & permissions for controlled access.  
-- 🌍 **Custom Domain** – Managed with Route 53 and Cloudflare DNS.  
+- 🌍 **Custom Domain** – Optional (via GitHub Pages).  
 - 📱 **Responsive Design** – Optimized for desktop and mobile viewing.  
 
 ---
@@ -21,10 +20,8 @@ Live at: **[www.dilshanpathirana.com](http://www.dilshanpathirana.com/)**
 ## 🛠️ Tech Stack
 
 - **Frontend**: React, TypeScript, TailwindCSS  
-- **Hosting**: AWS S3 (Static Website Hosting)  
+- **Hosting**: GitHub Pages  
 - **CI/CD**: GitHub Actions (automated build & deploy)  
-- **DNS & Domain**: Route 53 + Cloudflare  
-- **Security & Permissions**: AWS IAM  
 
 ---
 
@@ -37,8 +34,8 @@ Live at: **[www.dilshanpathirana.com](http://www.dilshanpathirana.com/)**
 ### Setup
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/aws-webapp01.git
-cd aws-webapp01
+git clone https://github.com/Dilshan-Pathirana/My-Portfolio.git
+cd My-Portfolio
 
 # Install dependencies
 npm install
