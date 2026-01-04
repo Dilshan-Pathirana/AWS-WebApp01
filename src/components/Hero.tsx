@@ -118,7 +118,7 @@ export default function Hero() {
           <div className="relative">
             <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-violet-400/30 to-cyan-400/30 blur-2xl" />
             <img
-              src="/11.jpg"
+              src={`${import.meta.env.BASE_URL}11.jpg`}
               alt="Dilshan Pathirana"
               className="relative z-10 w-56 h-56 sm:w-72 sm:h-72 rounded-full object-cover border border-white/10 bg-white/5 shadow-2xl"
             />
